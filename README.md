@@ -87,3 +87,28 @@ For detailed information about the Hiiro API, refer to the [official API documen
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Environment Configuration
+
+The application is configured to work with different environments:
+
+### Backend
+
+The API URL can be configured in the `.env` file:
+
+- For local development: `HIIRO_API_URL=http://localhost:5001/v2`
+- For production: `HIIRO_API_URL=https://api.fsco.io/v2`
+
+### Frontend
+
+The frontend uses environment files to configure the API URL:
+
+- Development (`environment.ts`): Points to the local backend proxy
+- Production (`environment.prod.ts`): Points to the production backend proxy
+
+To build for production:
+
+```
+cd frontend
+npm run build -- --configuration=production
+```

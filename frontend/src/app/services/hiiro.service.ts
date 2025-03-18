@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, interval } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 import {
   Document,
   Group,
@@ -15,7 +16,7 @@ import {
   providedIn: 'root'
 })
 export class HiiroService {
-  private apiUrl = 'http://localhost:3000/api/hiiro';
+  private apiUrl = environment.apiUrl;
   private pollingInterval = 5000; // 5 seconds
 
   constructor(private http: HttpClient) { }

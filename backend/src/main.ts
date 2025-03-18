@@ -7,7 +7,11 @@ async function bootstrap() {
   
   // Enable CORS for frontend
   app.enableCors({
-    origin: 'http://localhost:4200', // Angular default port
+    origin: [
+      'http://localhost:4200',  // Default Angular port
+      'http://localhost:39405', // Current Angular port
+      /localhost:\d+$/          // Any localhost port (optional, for flexibility)
+    ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
   });
